@@ -1,7 +1,4 @@
 <h1>All Events</h1>
+<%= render partial: "shared/event_info", locals: {events: @events} %>
 
-<% @events.each do |event| %>
-  <p><%= event.name %></p>
-  <p><%= event.date %></p>
-  <p><%= event.location %></p>
-<% end %>
+<%= link_to "Create an event today!", new_event_path %>
