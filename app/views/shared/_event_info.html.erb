@@ -1,5 +1,8 @@
 <% events.each do |event| %>
+  <% creator = User.where(id: event.creator_id).pluck(:username).pop %>
+  
   <p><%= event.name %></p>
-  <p><%= event.date %></p>
-  <p><%= event.location %></p>
+  <p>Time: <%= event.date %></p>
+  <p>Location: <%= event.location %></p>
+  <p>Organizer: <%= creator %></p>
 <% end %>
