@@ -13,7 +13,7 @@ class EventsController < ApplicationController
 
   def create
     if user_signed_in?
-      @event = [current_user.created_events.create(event_params)]
+      @event = current_user.created_events.create(event_params)
       render :show, status: :created
     else
       redirect_to new_user_session_path, alert: "You must be signed in to create an event"

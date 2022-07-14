@@ -5,4 +5,6 @@
   <p>Time: <%= event.date %></p>
   <p>Location: <%= event.location %></p>
   <p>Organizer: <%= creator %></p>
+
+  <%= link_to "Event details", event_path(event) %>
 <% end %>
