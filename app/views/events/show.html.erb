@@ -1,2 +1,4 @@
 <h1>This Event</h1>
 <%= render partial: "shared/event_info", locals: {events: [@event]} %>
+
+<%= button_to "Attend this event", rsvps_path, params: { event_id: @event.id } %>
