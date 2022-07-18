@@ -1,2 +1,12 @@
 <h1>My Events</h1>
+
+<h2>Created Events</h2>
 <%= render partial: "shared/event_info", locals: {events: @events} %>
+
+<br>
+<h2>Attended Events</h2>
+<ul>
+  <% @user.attended_events.each do |attended_event| %>
+    <li><%= link_to "#{attended_event.name}", events_path(id: attended_event.id)  %></li>
+  <% end %>
+</ul>
