@@ -5,8 +5,17 @@
 
 <br>
 <h2>Attended Events</h2>
+<h3>Past Events</h3>
+<% past_events = @user.attended_events.where("date < ?", Time.now) %>
 <ul>
-  <% @user.attended_events.each do |attended_event| %>
-    <li><%= link_to "#{attended_event.name}", events_path(id: attended_event.id)  %></li>
+  <% past_events.each do |attended_event| %>
+    <li><%= link_to "#{attended_event.name}", event_path(id: attended_event.id)  %></li>
+  <% end %>
+</ul>
+<h3>Upcoming Events</h3>
+<% future_events = @user.attended_events.where("date > ?", Time.now)%>
+<ul>
+  <% future_events.each do |attended_event| %>
+    <li><%= link_to "#{attended_event.name}", event_path(id: attended_event.id) %></li>
   <% end %>
 </ul>
