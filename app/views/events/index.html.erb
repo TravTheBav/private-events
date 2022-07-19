@@ -1,4 +1,15 @@
 <h1>All Events</h1>
-<%= render partial: "shared/event_info", locals: {events: @events} %>
+<h2>Past Events</h2>
+<ul>
+  <% Event.past.each do |event| %>
+    <li><%= link_to "#{event.name}", event_path(id: event.id) %></li>
+  <% end %>
+</ul>
+<h2>Upcoming Events</h2>
+<ul>
+  <% Event.upcoming.each do |event| %>
+    <li><%= link_to "#{event.name}", event_path(id: event.id) %></li>
+  <% end %>
+</ul>
 
 <%= link_to "Create an event today!", new_event_path %>
